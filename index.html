@@ -5,6 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap"
+            rel="stylesheet"
+        />
+
         <script src="./assets/icons/fontAwesome.js"></script>
         <link rel="stylesheet" href="./css/style.css" />
 
@@ -13,6 +19,8 @@
 
     <body>
         <header class="header">
+            <h1 class="heading-primary" data-speed="0.2">Climato</h1>
+
             <img
                 src="./assets/images/sky.png"
                 alt="Sky"
@@ -21,25 +29,29 @@
             <img
                 src="./assets/images/mountain3.png"
                 alt="Mountain"
-                class="header__background-image header__background-image--mountain-3"
+                class="parallax-scroll-up header__background-image header__background-image--mountain-3"
+                data-speed="-0.1"
             />
             <img
                 src="./assets/images/mountain2.png"
                 alt="Mountain"
-                class="header__background-image header__background-image--mountain-2"
+                class="parallax-scroll-up header__background-image header__background-image--mountain-2"
+                data-speed="-0.3"
             />
             <img
                 src="./assets/images/mountain1.png"
                 alt="Mountain"
-                class="header__background-image header__background-image--mountain-1"
+                class="parallax-scroll-up header__background-image header__background-image--mountain-1"
+                data-speed="-0.5"
             />
             <img
                 src="./assets/images/person.png"
                 alt="Person"
-                class="header__background-image header__background-image--person"
+                class="parallax-scroll-up header__background-image header__background-image--person"
+                data-speed="-0.7"
             />
 
-            <div class="header__shadow"></div>
+            <div class="parallax-scroll-up header__shadow" data-speed="-0.5"></div>
         </header>
 
         <script src="./js/script.js"></script>

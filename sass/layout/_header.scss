@@ -2,10 +2,10 @@
     width: 100%;
     height: 100vh;
     position: relative;
-    overflow-x: hidden;
 
     &__background-image {
         position: absolute;
+        transform: translateY(0);
 
         &--sky {
             width: 1920px;
@@ -14,8 +14,8 @@
         }
 
         &--mountain-3 {
-            width: 998.4px;
-            bottom: 210px;
+            width: 1100px;
+            bottom: 180px;
             right: 0;
         }
 
@@ -29,27 +29,30 @@
             width: 1920px;
             bottom: -150px;
             right: 0;
+            z-index: 2;
         }
 
         &--person {
             width: 900px;
             bottom: -150px;
             left: 0;
+            z-index: 2;
         }
     }
 
     &__shadow {
-        background: linear-gradient(to top, $color-black 20%, transparent);
-        height: 50rem;
+        background: linear-gradient(to top, $color-black 40%, transparent);
+        height: 80rem;
         width: 100%;
         position: absolute;
-        top: calc(100vh - 25rem);
+        top: calc(100vh - 40rem);
+        z-index: 2;
     }
 
     &::after {
-        content: "";
+        content: '';
         position: absolute;
-        height: 100%;
+        height: 90%;
         width: 100%;
         background-color: rgba($color-black, 0.2);
     }
