@@ -32,7 +32,8 @@ body {
 .header {
   width: 100%;
   height: 100vh;
-  position: relative; }
+  position: relative;
+  overflow: hidden; }
   .header__background-image {
     position: absolute;
     transform: translateY(0); }
