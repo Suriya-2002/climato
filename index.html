@@ -7,7 +7,7 @@
 
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
-            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;800&display=swap"
             rel="stylesheet"
         />
 
@@ -53,6 +53,31 @@
 
             <div class="parallax-scroll-up header__shadow" data-speed="-0.5"></div>
         </header>
+
+        <main class="weather">
+            <section class="weather__primary">
+                <div class="location">
+                    <div class="location__text">
+                        <h2 class="location__time-zone"></h2>
+                        <h3 class="location__area"></h3>
+                        <p class="location__country"></p>
+                    </div>
+
+                    <div class="location__icon-container">
+                        <img src="" alt="Weather Emoji" class="location__icon" />
+                    </div>
+                </div>
+
+                <div class="temperature">
+                    <div class="temperature__text">
+                        <h2 class="temperature__value"></h2>
+                        <h2 class="temperature__degree">&deg;</h2>
+                        <h2 class="temperature__units">C</h2>
+                    </div>
+                    <h2 class="temperature__description"></h2>
+                </div>
+            </section>
+        </main>
 
         <script src="./js/script.js"></script>
     </body>

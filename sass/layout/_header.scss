@@ -42,11 +42,11 @@
     }
 
     &__shadow {
-        background: linear-gradient(to top, $color-black 40%, transparent);
-        height: 80rem;
+        background: linear-gradient(to top, $color-black 70%, transparent);
+        height: 90rem;
         width: 100%;
         position: absolute;
-        top: calc(100vh - 40rem);
+        top: calc(100vh - 30rem);
         z-index: 2;
     }
 

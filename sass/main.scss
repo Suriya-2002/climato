@@ -8,10 +8,12 @@
 @import './base/typography';
 @import './base/utilities';
 
-// @import './components';
+@import './components/location';
+@import './components/temperature';
 
 @import './layout/body';
 @import './layout/header';
+@import './layout/weather';
 
 // @import './pages';
 

@@ -1,0 +1,12 @@
+.weather {
+    background: linear-gradient($color-black, $color-grey-dark);
+
+    &__primary {
+        height: 100vh;
+        padding: 3rem 6rem;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+    }
+}

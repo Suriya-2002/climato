@@ -1,0 +1,36 @@
+.temperature {
+    color: $color-white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    &__text {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        line-height: 1;
+        cursor: pointer;
+    }
+
+    &__value {
+        font-size: 12rem;
+    }
+
+    &__degree {
+        font-size: 10rem;
+        font-weight: 600;
+        margin-left: 1rem;
+        align-self: flex-start;
+    }
+
+    &__units {
+        font-size: 8rem;
+        font-weight: 200;
+    }
+
+    &__description {
+        font-size: 6rem;
+        font-weight: 200;
+    }
+}
