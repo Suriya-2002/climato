@@ -1,6 +1,15 @@
 const parallaxScrollUp = document.querySelectorAll('.parallax-scroll-up');
 const headingPrimary = document.querySelector('.heading-primary');
 
+const timeZoneDOM = document.querySelector('.location__time-zone');
+const areaDOM = document.querySelector('.location__area');
+const countryDOM = document.querySelector('.location__country');
+
+const temperatureDOM = document.querySelector('.temperature__value');
+const degreeDOM = document.querySelector('.temperature__degree');
+const unitsDOM = document.querySelector('.temperature__units');
+const descriptionDOM = document.querySelector('.temperature__description');
+
 document.addEventListener('scroll', () => {
     const scroll = window.scrollY;
 
@@ -13,3 +22,57 @@ document.addEventListener('scroll', () => {
     headingPrimary.style.transform = `translate(-50%, calc(-50% + ${Math.trunc(scroll * speed)}px))`;
     headingPrimary.style.opacity = ``;
 });
+
+const getEmoji = temperature => {
+    const icon = document.querySelector('.location__icon');
+
+    if (temperature > 45) icon.src = './assets/images/hot.gif';
+    else if (temperature > 30) icon.src = './assets/images/sunglass.gif';
+    else if (temperature > 20) icon.src = './assets/images/blessed.gif';
+    else if (temperature > 10) icon.src = './assets/images/sleep.gif';
+    else icon.src = './assets/images/cold.gif';
+};
+
+const updateUI = data => {
+    const {
+        temp_c: temperature,
+        condition: { text: description },
+    } = data.current;
+    const { tz_id: timeZone, name: area, region, country } = data.location;
+
+    timeZoneDOM.textContent = `${timeZone.split('/')[0]} / ${timeZone.split('/')[1]}`;
+    areaDOM.textContent = `${area}, ${region}`;
+    countryDOM.textContent = country;
+
+    getEmoji(temperature);
+
+    temperatureDOM.textContent = temperature;
+    degreeDOM.innerHTML = '&deg;';
+    unitsDOM.textContent = 'C';
+    descriptionDOM.textContent = description;
+};
+
+const apiKey = '8ab0cd3f17d54511bde60005210203';
+
+const geolocation = () => {
+    navigator.geolocation.getCurrentPosition(
+        position => {
+            const coordinates = position.coords;
+            const latitude = coordinates.latitude;
+            const longitude = coordinates.longitude;
+
+            const api = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${latitude},${longitude}`;
+
+            fetch(api)
+                .then(response => response.json())
+                .then(data => {
+                    updateUI(data);
+                });
+        },
+        error => {
+            descriptionDOM.innerHTML = 'Allow <b>Climato</b> to access this device location.';
+        }
+    );
+};
+
+window.addEventListener('load', geolocation);
