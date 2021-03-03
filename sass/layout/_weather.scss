@@ -8,5 +8,15 @@
         justify-content: space-around;
         align-items: center;
         flex-direction: column;
+        position: relative;
     }
+}
+
+.weather-tools {
+    height: 10rem;
+    width: 80%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
 }

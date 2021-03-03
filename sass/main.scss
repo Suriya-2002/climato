@@ -8,7 +8,10 @@
 @import './base/typography';
 @import './base/utilities';
 
+@import './components/gprs';
+@import './components/icon';
 @import './components/location';
+@import './components/search-bar';
 @import './components/temperature';
 
 @import './layout/body';

@@ -56,6 +56,28 @@
 
         <main class="weather">
             <section class="weather__primary">
+                <div class="weather-tools">
+                    <div class="gprs">
+                        <div class="gprs__icon">
+                            <i class="icon icon--gprs far fa-map-marker-alt"></i>
+                        </div>
+                        <span class="gprs__label">GPRS</span>
+                    </div>
+
+                    <div class="search-bar">
+                        <label for="place" class="search-bar__label-container">
+                            <img src="./assets/images/globe.gif" alt="Globe" class="search-bar__label" />
+                        </label>
+
+                        <div class="search-bar__input-container">
+                            <input type="text" class="search-bar__input" id="place" placeholder="Place" />
+                            <label for="place" class="search-bar__icon">
+                                <i class="icon icon--search fas fa-search"></i>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="location">
                     <div class="location__text">
                         <h2 class="location__time-zone"></h2>
