@@ -29,6 +29,21 @@ document.addEventListener('scroll', () => {
     headingPrimary.style.opacity = ``;
 });
 
+const loadingUI = () => {
+    icon.src = './assets/images/clock.gif';
+
+    timeZoneDOM.textContent = '';
+    areaDOM.textContent = '';
+    countryDOM.textContent = '';
+
+    temperatureDOM.textContent = '';
+    degreeDOM.innerHTML = '';
+    unitsDOM.textContent = '';
+    descriptionDOM.textContent = 'Loading ...';
+
+    searchInput.blur();
+};
+
 const getEmoji = temperature => {
     icon.style.display = 'inline-block';
 
@@ -100,13 +115,24 @@ const geolocation = () => {
     );
 };
 
-window.addEventListener('load', geolocation);
-gprsButton.addEventListener('click', geolocation);
+window.addEventListener('load', () => {
+    loadingUI();
+    geolocation();
+});
 
-searchButton.addEventListener('click', getWeatherWithLocation);
+gprsButton.addEventListener('click', () => {
+    loadingUI();
+    geolocation();
+});
+
+searchButton.addEventListener('click', () => {
+    loadingUI();
+    getWeatherWithLocation();
+});
+
 window.addEventListener('keydown', event => {
     if (event.key === 'Enter') {
-        searchInput.blur();
+        loadingUI();
         getWeatherWithLocation();
     }
 });
