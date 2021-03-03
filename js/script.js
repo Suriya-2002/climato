@@ -1,6 +1,11 @@
 const parallaxScrollUp = document.querySelectorAll('.parallax-scroll-up');
 const headingPrimary = document.querySelector('.heading-primary');
 
+const gprsButton = document.querySelector('.gprs__icon');
+
+const searchInput = document.querySelector('.search-bar__input');
+const searchButton = document.querySelector('.search-bar__icon');
+
 const timeZoneDOM = document.querySelector('.location__time-zone');
 const areaDOM = document.querySelector('.location__area');
 const countryDOM = document.querySelector('.location__country');
@@ -51,9 +56,22 @@ const updateUI = data => {
     degreeDOM.innerHTML = '&deg;';
     unitsDOM.textContent = 'C';
     descriptionDOM.textContent = description;
+
+    searchInput.value = '';
 };
 
 const apiKey = '8ab0cd3f17d54511bde60005210203';
+
+const getWeatherWithLocation = () => {
+    const location = searchInput.value;
+    const api = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${location}`;
+
+    fetch(api)
+        .then(response => response.json())
+        .then(data => {
+            updateUI(data);
+        });
+};
 
 const geolocation = () => {
     navigator.geolocation.getCurrentPosition(
@@ -83,3 +101,12 @@ const geolocation = () => {
 };
 
 window.addEventListener('load', geolocation);
+gprsButton.addEventListener('click', geolocation);
+
+searchButton.addEventListener('click', getWeatherWithLocation);
+window.addEventListener('keydown', event => {
+    if (event.key === 'Enter') {
+        searchInput.blur();
+        getWeatherWithLocation();
+    }
+});

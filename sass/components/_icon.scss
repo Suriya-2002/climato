@@ -9,11 +9,7 @@
 
     &--search {
         font-size: 3.5rem;
-        margin-left: 2rem;
-        position: absolute;
-        top: 1.25rem;
         opacity: 0;
-        pointer-events: none;
-        transform: translateX(0);
+        transform: translateX(-60rem);
     }
 }

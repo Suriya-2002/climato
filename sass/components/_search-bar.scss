@@ -4,6 +4,8 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    position: relative;
+    z-index: 0;
 
     &__label-container {
         background-color: $color-white;
@@ -27,7 +29,7 @@
     }
 
     &__input {
-        font-size: 3rem;
+        font-size: 2.5rem;
         font-family: 'Poppins', sans-serif;
         width: 100%;
         height: 100%;
@@ -44,8 +46,23 @@
 
         &:focus ~ .search-bar__icon > .icon--search {
             opacity: 1;
-            pointer-events: all;
+            transform: translateX(0);
+        }
+
+        &:focus ~ .search-bar__icon {
             transform: translateX(60rem);
         }
+    }
+
+    &__icon {
+        background-color: transparent;
+        margin-left: 2rem;
+        border: none;
+        outline: none;
+        position: absolute;
+        top: 1.25rem;
+        z-index: 1;
+        transform: translateX(-100rem);
+        transition-delay: 0.3s;
     }
 }
