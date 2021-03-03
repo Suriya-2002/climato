@@ -4,6 +4,7 @@ const headingPrimary = document.querySelector('.heading-primary');
 const timeZoneDOM = document.querySelector('.location__time-zone');
 const areaDOM = document.querySelector('.location__area');
 const countryDOM = document.querySelector('.location__country');
+const icon = document.querySelector('.location__icon');
 
 const temperatureDOM = document.querySelector('.temperature__value');
 const degreeDOM = document.querySelector('.temperature__degree');
@@ -24,7 +25,7 @@ document.addEventListener('scroll', () => {
 });
 
 const getEmoji = temperature => {
-    const icon = document.querySelector('.location__icon');
+    icon.style.display = 'inline-block';
 
     if (temperature > 45) icon.src = './assets/images/hot.gif';
     else if (temperature > 30) icon.src = './assets/images/sunglass.gif';
@@ -70,7 +71,13 @@ const geolocation = () => {
                 });
         },
         error => {
-            descriptionDOM.innerHTML = 'Allow <b>Climato</b> to access this device location.';
+            icon.style.display = 'none';
+
+            if (error.code === 1) {
+                descriptionDOM.innerHTML = 'Allow <b>Climato</b> to access this device location.';
+            } else if (error.code === 2) {
+                descriptionDOM.innerHTML = '<b>Climato</b> needs internet access.';
+            }
         }
     );
 };
