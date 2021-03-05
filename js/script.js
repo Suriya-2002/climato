@@ -57,6 +57,21 @@ const loadingUI = () => {
     descriptionDOM.textContent = 'Loading ...';
 
     searchInput.blur();
+
+    precipitation1DOM.textContent = '--';
+    precipitation2DOM.textContent = '--';
+
+    wind1DOM.textContent = '--';
+    wind2DOM.textContent = '--';
+    windSecondary1DOM.textContent = '??';
+    windSecondary2DOM.textContent = '??';
+
+    pressure1DOM.textContent = '--';
+    pressure2DOM.textContent = '--';
+
+    humidityDOM.textContent = '--';
+    cloudDOM.textContent = '--';
+    uvDOM.textContent = '--';
 };
 
 const getEmoji = temperature => {
