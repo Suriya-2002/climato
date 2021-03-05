@@ -16,6 +16,21 @@ const degreeDOM = document.querySelector('.temperature__degree');
 const unitsDOM = document.querySelector('.temperature__units');
 const descriptionDOM = document.querySelector('.temperature__description');
 
+const precipitation1DOM = document.querySelector('.card__content-value--precipitation-1');
+const precipitation2DOM = document.querySelector('.card__content-value--precipitation-2');
+
+const wind1DOM = document.querySelector('.card__content-value--wind-1');
+const wind2DOM = document.querySelector('.card__content-value--wind-2');
+const windSecondary1DOM = document.querySelector('.card__content-secondary-value--wind-1');
+const windSecondary2DOM = document.querySelector('.card__content-secondary-value--wind-2');
+
+const pressure1DOM = document.querySelector('.card__content-value--pressure-1');
+const pressure2DOM = document.querySelector('.card__content-value--pressure-2');
+
+const humidityDOM = document.querySelector('.card__content-value--humidity');
+const cloudDOM = document.querySelector('.card__content-value--cloud');
+const uvDOM = document.querySelector('.card__content-value--uv');
+
 document.addEventListener('scroll', () => {
     const scroll = window.scrollY;
 
@@ -56,23 +71,49 @@ const getEmoji = temperature => {
 
 const updateUI = data => {
     const {
-        temp_c: temperature,
+        temp_c,
         condition: { text: description },
+        precip_mm,
+        precip_in,
+        wind_kph,
+        wind_mph,
+        wind_dir,
+        wind_degree,
+        pressure_mb,
+        pressure_in,
+        humidity,
+        cloud,
+        uv,
     } = data.current;
-    const { tz_id: timeZone, name: area, region, country } = data.location;
+    const { tz_id, name: area, region, country } = data.location;
 
-    timeZoneDOM.textContent = `${timeZone.split('/')[0]} / ${timeZone.split('/')[1]}`;
+    timeZoneDOM.textContent = `${tz_id.split('/')[0]} / ${tz_id.split('/')[1]}`;
     areaDOM.textContent = `${area}, ${region}`;
     countryDOM.textContent = country;
 
-    getEmoji(temperature);
+    getEmoji(temp_c);
 
-    temperatureDOM.textContent = temperature;
+    temperatureDOM.textContent = temp_c;
     degreeDOM.innerHTML = '&deg;';
     unitsDOM.textContent = 'C';
     descriptionDOM.textContent = description;
 
     searchInput.value = '';
+
+    precipitation1DOM.textContent = precip_mm;
+    precipitation2DOM.textContent = precip_in;
+
+    wind1DOM.textContent = wind_kph;
+    wind2DOM.textContent = wind_mph;
+    windSecondary1DOM.textContent = wind_dir;
+    windSecondary2DOM.textContent = wind_degree;
+
+    pressure1DOM.textContent = pressure_mb;
+    pressure2DOM.textContent = pressure_in;
+
+    humidityDOM.textContent = humidity;
+    cloudDOM.textContent = cloud;
+    uvDOM.textContent = uv;
 };
 
 const apiKey = '8ab0cd3f17d54511bde60005210203';
