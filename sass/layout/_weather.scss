@@ -1,7 +1,6 @@
 .weather {
-    background: linear-gradient($color-black, $color-grey-dark);
-
     &__primary {
+        background: linear-gradient($color-black, $color-grey-dark);
         height: 100vh;
         padding: 3rem 6rem;
         display: flex;
@@ -9,6 +8,12 @@
         align-items: center;
         flex-direction: column;
         position: relative;
+    }
+
+    &__secondary {
+        background: linear-gradient($color-grey-dark, $color-black);
+        min-height: 100vh;
+        padding: 1rem 6rem;
     }
 }
 

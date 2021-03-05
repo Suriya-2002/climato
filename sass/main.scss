@@ -8,6 +8,7 @@
 @import './base/typography';
 @import './base/utilities';
 
+@import './components/card';
 @import './components/gprs';
 @import './components/icon';
 @import './components/location';
@@ -15,6 +16,7 @@
 @import './components/temperature';
 
 @import './layout/body';
+@import './layout/card';
 @import './layout/header';
 @import './layout/weather';
 
