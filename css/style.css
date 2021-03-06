@@ -329,12 +329,23 @@ body {
     position: absolute;
     top: calc(100vh - 30rem);
     z-index: 2; }
-  .header::after {
+  .header--blue::after, .header--green::after, .header--pink::after, .header--orange::after, .header--red::after {
     content: '';
     position: absolute;
     height: 90%;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.2); }
+    width: 100%; }
+  .header--black::after {
+    background-color: rgba(0, 0, 0, 0.1); }
+  .header--blue::after {
+    background-color: rgba(0, 159, 253, 0.1); }
+  .header--green::after {
+    background-color: rgba(126, 213, 111, 0.1); }
+  .header--pink::after {
+    background-color: rgba(254, 123, 176, 0.1); }
+  .header--orange::after {
+    background-color: rgba(251, 215, 43, 0.1); }
+  .header--red::after {
+    background-color: rgba(252, 87, 94, 0.1); }
 
 .weather__primary {
   background: linear-gradient(#000, #444);

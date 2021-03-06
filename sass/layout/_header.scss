@@ -50,11 +50,38 @@
         z-index: 2;
     }
 
-    &::after {
+    &--blue::after,
+    &--green::after,
+    &--pink::after,
+    &--orange::after,
+    &--red::after {
         content: '';
         position: absolute;
         height: 90%;
         width: 100%;
-        background-color: rgba($color-black, 0.2);
+    }
+
+    &--black::after {
+        background-color: rgba($color-black, 0.1);
+    }
+
+    &--blue::after {
+        background-color: rgba($color-blue-light, 0.1);
+    }
+
+    &--green::after {
+        background-color: rgba($color-green-light, 0.1);
+    }
+
+    &--pink::after {
+        background-color: rgba($color-pink-light, 0.1);
+    }
+
+    &--orange::after {
+        background-color: rgba($color-orange-light, 0.1);
+    }
+
+    &--red::after {
+        background-color: rgba($color-red-light, 0.1);
     }
 }

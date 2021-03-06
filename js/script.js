@@ -1,6 +1,12 @@
 const parallaxScrollUp = document.querySelectorAll('.parallax-scroll-up');
 const headingPrimary = document.querySelector('.heading-primary');
 
+const weatherPrimary = document.querySelector('.weather__primary');
+const weatherSecondary = document.querySelector('.weather__secondary');
+
+const header = document.querySelector('.header');
+const headerShadow = document.querySelector('.header__shadow');
+
 const popUp = document.querySelector('.pop-up');
 const popUpValue = document.querySelector('.pop-up__value');
 const popUpUnits = document.querySelector('.pop-up__units');
@@ -35,6 +41,15 @@ const pressure2DOM = document.querySelector('.card__content-value--pressure-2');
 const humidityDOM = document.querySelector('.card__content-value--humidity');
 const cloudDOM = document.querySelector('.card__content-value--cloud');
 const uvDOM = document.querySelector('.card__content-value--uv');
+
+const headerOverlayColors = [
+    'header--black',
+    'header--blue',
+    'header--pink',
+    'header--green',
+    'header--orange',
+    'header--red',
+];
 
 document.addEventListener('scroll', () => {
     const scroll = window.scrollY;
@@ -82,14 +97,37 @@ const loadingUI = () => {
     uvDOM.textContent = '--';
 };
 
+const changeBackgroundColor = (colorDark, colorLight) => {
+    weatherPrimary.style.background = `linear-gradient(${colorDark}, ${colorLight})`;
+    weatherSecondary.style.background = `linear-gradient(${colorLight}, ${colorDark}) `;
+    headerShadow.style.background = `linear-gradient(to top, ${colorDark} 70%, transparent)`;
+};
+
 const getEmoji = temperature => {
     icon.style.display = 'inline-block';
+    headerOverlayColors.forEach(color => header.classList.remove(color));
 
-    if (temperature > 45) icon.src = './assets/images/hot.gif';
-    else if (temperature > 30) icon.src = './assets/images/sunglass.gif';
-    else if (temperature > 20) icon.src = './assets/images/blessed.gif';
-    else if (temperature > 10) icon.src = './assets/images/sleep.gif';
-    else icon.src = './assets/images/cold.gif';
+    if (temperature > 45) {
+        icon.src = './assets/images/hot.gif';
+        header.classList.add('header--red');
+        changeBackgroundColor('#bd4f6c', '#fc575e');
+    } else if (temperature > 30) {
+        icon.src = './assets/images/sunglass.gif';
+        header.classList.add('header--orange');
+        changeBackgroundColor('#f9484a', '#fbd72b');
+    } else if (temperature > 20) {
+        icon.src = './assets/images/blessed.gif';
+        header.classList.add('header--green');
+        changeBackgroundColor('#28b485', '#7ed56f');
+    } else if (temperature > 10) {
+        icon.src = './assets/images/sleep.gif';
+        header.classList.add('header--pink');
+        changeBackgroundColor('#ff748b', '#fe7bb0');
+    } else {
+        icon.src = './assets/images/cold.gif';
+        header.classList.add('header--blue');
+        changeBackgroundColor('#2a2a72', '#009ffd');
+    }
 };
 
 const updateUI = data => {
