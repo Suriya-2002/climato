@@ -1,0 +1,36 @@
+.pop-up {
+    background-color: rgba($color-white, 0.8);
+    border-radius: 0.5rem;
+    width: 40rem;
+    height: 18rem;
+    margin: 5rem;
+    padding: 2rem 4rem;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 6;
+
+    &__title {
+        font-size: 2.5rem;
+        font-weight: 800;
+    }
+
+    &__content {
+        font-size: 7rem;
+        font-weight: 200;
+        text-align: right;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    &__value {
+        font-size: 7rem;
+        font-weight: 200;
+    }
+
+    &__units {
+        font-size: 4rem;
+        font-weight: 600;
+    }
+}
