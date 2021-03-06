@@ -7,21 +7,25 @@
     &__text {
         color: $color-white;
         line-height: 1.5;
+        text-shadow: $text-shadow-dark;
     }
 
     &__time-zone {
         font-size: 4.8rem;
         font-weight: 200;
+        text-shadow: $text-shadow-dark;
     }
 
     &__area {
         font-size: 2.8rem;
         font-weight: 800;
+        text-shadow: $text-shadow-dark;
     }
 
     &__country {
         font-size: 2.8rem;
         font-weight: 200;
+        text-shadow: $text-shadow-dark;
     }
 
     &__icon-container {
@@ -30,6 +34,9 @@
 
     &__icon {
         color: $color-white;
+        background-color: rgba($color-white, 0.3);
         width: 100%;
+        border-radius: 50%;
+        box-shadow: $box-shadow;
     }
 }

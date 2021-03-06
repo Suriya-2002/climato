@@ -12,10 +12,12 @@
         align-items: center;
         line-height: 1;
         cursor: pointer;
+        text-shadow: $text-shadow-dark;
     }
 
     &__value {
         font-size: 12rem;
+        text-shadow: $text-shadow-dark;
     }
 
     &__degree {
@@ -23,15 +25,18 @@
         font-weight: 600;
         margin-left: 1rem;
         align-self: flex-start;
+        text-shadow: $text-shadow-dark;
     }
 
     &__units {
         font-size: 8rem;
         font-weight: 200;
+        text-shadow: $text-shadow-dark;
     }
 
     &__description {
         font-size: 6rem;
         font-weight: 200;
+        text-shadow: $text-shadow-dark;
     }
 }

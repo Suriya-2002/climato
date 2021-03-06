@@ -8,6 +8,7 @@
     left: -12%;
 
     &__icon {
+        filter: drop-shadow($text-shadow-dark);
         transition: all 0.4s ease-in-out;
 
         &:hover {
@@ -31,6 +32,7 @@
 
     &__icon:hover ~ &__label {
         opacity: 1;
+        text-shadow: $text-shadow-dark;
         transform: translateY(0.5rem);
     }
 }
