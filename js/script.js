@@ -1,6 +1,10 @@
 const parallaxScrollUp = document.querySelectorAll('.parallax-scroll-up');
 const headingPrimary = document.querySelector('.heading-primary');
 
+const popUp = document.querySelector('.pop-up');
+const popUpValue = document.querySelector('.pop-up__value');
+const popUpUnits = document.querySelector('.pop-up__units');
+
 const gprsButton = document.querySelector('.gprs__icon');
 
 const searchInput = document.querySelector('.search-bar__input');
@@ -11,6 +15,7 @@ const areaDOM = document.querySelector('.location__area');
 const countryDOM = document.querySelector('.location__country');
 const icon = document.querySelector('.location__icon');
 
+const temperatureContainerDOM = document.querySelector('.temperature');
 const temperatureDOM = document.querySelector('.temperature__value');
 const degreeDOM = document.querySelector('.temperature__degree');
 const unitsDOM = document.querySelector('.temperature__units');
@@ -58,6 +63,9 @@ const loadingUI = () => {
 
     searchInput.blur();
 
+    popUpValue.textContent = '--';
+    popUpUnits.textContent = '';
+
     precipitation1DOM.textContent = '--';
     precipitation2DOM.textContent = '--';
 
@@ -88,6 +96,7 @@ const updateUI = data => {
     const {
         temp_c,
         condition: { text: description },
+        feelslike_c,
         precip_mm,
         precip_in,
         wind_kph,
@@ -114,6 +123,9 @@ const updateUI = data => {
     descriptionDOM.textContent = description;
 
     searchInput.value = '';
+
+    popUpValue.textContent = feelslike_c;
+    popUpUnits.textContent = 'C';
 
     precipitation1DOM.textContent = precip_mm;
     precipitation2DOM.textContent = precip_in;
@@ -191,4 +203,14 @@ window.addEventListener('keydown', event => {
         loadingUI();
         getWeatherWithLocation();
     }
+});
+
+temperatureContainerDOM.addEventListener('mouseenter', () => {
+    popUp.classList.add('pop-up--active');
+});
+
+temperatureContainerDOM.addEventListener('mouseleave', () => {
+    setTimeout(() => {
+        popUp.classList.remove('pop-up--active');
+    }, 200);
 });
