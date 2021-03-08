@@ -42,6 +42,8 @@ const humidityDOM = document.querySelector('.card__content-value--humidity');
 const cloudDOM = document.querySelector('.card__content-value--cloud');
 const uvDOM = document.querySelector('.card__content-value--uv');
 
+const footerShadow = document.querySelector('.footer__shadow');
+
 const headerOverlayColors = [
     'header--black',
     'header--blue',
@@ -101,6 +103,7 @@ const changeBackgroundColor = (colorDark, colorLight) => {
     weatherPrimary.style.background = `linear-gradient(${colorDark}, ${colorLight})`;
     weatherSecondary.style.background = `linear-gradient(${colorLight}, ${colorDark}) `;
     headerShadow.style.background = `linear-gradient(to top, ${colorDark} 70%, transparent)`;
+    footerShadow.style.background = `linear-gradient(${colorDark}, #000)`;
 };
 
 const getEmoji = temperature => {

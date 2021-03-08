@@ -6,7 +6,8 @@
   box-sizing: inherit; }
 
 html {
-  font-size: 62.5%; }
+  font-size: 62.5%;
+  scroll-behavior: smooth; }
 
 body {
   box-sizing: border-box; }
@@ -28,6 +29,10 @@ body {
 
 .paragraph {
   font-size: 2rem; }
+  .paragraph--medium {
+    font-size: 2.2rem; }
+  .paragraph--small {
+    font-size: 1.8rem; }
 
 .card {
   height: 60rem;
@@ -280,7 +285,7 @@ body {
     align-items: center;
     line-height: 1;
     cursor: pointer;
-    text-shadow: 0 1rem 2rem black; }
+    text-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4); }
   .temperature__value {
     font-size: 12rem;
     text-shadow: 0 1rem 2rem black; }
@@ -307,6 +312,38 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center; }
+
+.footer {
+  background-color: #000;
+  text-align: center;
+  width: 100%;
+  margin-top: 25rem;
+  padding: 3rem;
+  position: relative; }
+  .footer__shadow {
+    background-image: linear-gradient(#000, #000);
+    height: 25rem;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(-100%); }
+  .footer__title {
+    color: #fff;
+    font-size: 5rem;
+    font-weight: 800;
+    text-decoration: none;
+    cursor: pointer; }
+  .footer__content {
+    color: #444;
+    margin: 8rem 0 3rem; }
+  .footer__link, .footer__link:link, .footer__link:visited {
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out; }
+    .footer__link:hover, .footer__link:link:hover, .footer__link:visited:hover {
+      color: #009ffd; }
 
 .header {
   width: 100%;

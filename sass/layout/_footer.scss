@@ -1,0 +1,44 @@
+.footer {
+    background-color: $color-black;
+    text-align: center;
+    width: 100%;
+    margin-top: 25rem;
+    padding: 3rem;
+    position: relative;
+
+    &__shadow {
+        background-image: linear-gradient($color-black, $color-black);
+        height: 25rem;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateY(-100%);
+    }
+
+    &__title {
+        color: $color-white;
+        font-size: 5rem;
+        font-weight: 800;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    &__content {
+        color: $color-grey-dark;
+        margin: 8rem 0 3rem;
+    }
+
+    &__link,
+    &__link:link,
+    &__link:visited {
+        color: $color-white;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            color: $color-blue-light;
+        }
+    }
+}
