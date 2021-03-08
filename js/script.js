@@ -53,6 +53,11 @@ const headerOverlayColors = [
     'header--red',
 ];
 
+let temperatureFahrenheit;
+let temperatureCelsius;
+let temperatureFeelsLikeFahrenheit;
+let temperatureFeelsLikeCelsius;
+
 document.addEventListener('scroll', () => {
     const scroll = window.scrollY;
 
@@ -136,8 +141,10 @@ const getEmoji = temperature => {
 const updateUI = data => {
     const {
         temp_c,
+        temp_f,
         condition: { text: description },
         feelslike_c,
+        feelslike_f,
         precip_mm,
         precip_in,
         wind_kph,
@@ -151,6 +158,12 @@ const updateUI = data => {
         uv,
     } = data.current;
     const { tz_id, name: area, region, country } = data.location;
+
+    temperatureCelsius = temp_c;
+    temperatureFahrenheit = temp_f;
+
+    temperatureFeelsLikeCelsius = feelslike_c;
+    temperatureFeelsLikeFahrenheit = feelslike_f;
 
     timeZoneDOM.textContent = `${tz_id.split('/')[0]} / ${tz_id.split('/')[1]}`;
     areaDOM.textContent = `${area}, ${region}`;
@@ -182,6 +195,26 @@ const updateUI = data => {
     humidityDOM.textContent = humidity;
     cloudDOM.textContent = cloud;
     uvDOM.textContent = uv;
+};
+
+const changeTemperatureUnits = () => {
+    if (unitsDOM.getAttribute('data-units') === 'celsius') {
+        unitsDOM.setAttribute('data-units', 'fahrenheit');
+
+        temperatureDOM.textContent = temperatureFahrenheit;
+        unitsDOM.textContent = 'F';
+
+        popUpValue.textContent = temperatureFeelsLikeFahrenheit;
+        popUpUnits.textContent = 'F';
+    } else if (unitsDOM.getAttribute('data-units') === 'fahrenheit') {
+        unitsDOM.setAttribute('data-units', 'celsius');
+
+        temperatureDOM.textContent = temperatureCelsius;
+        unitsDOM.textContent = 'C';
+
+        popUpValue.textContent = temperatureFeelsLikeCelsius;
+        popUpUnits.textContent = 'C';
+    }
 };
 
 const apiKey = '8ab0cd3f17d54511bde60005210203';
@@ -245,6 +278,8 @@ window.addEventListener('keydown', event => {
         getWeatherWithLocation();
     }
 });
+
+temperatureContainerDOM.addEventListener('click', changeTemperatureUnits);
 
 temperatureContainerDOM.addEventListener('mouseenter', () => {
     popUp.classList.add('pop-up--active');
