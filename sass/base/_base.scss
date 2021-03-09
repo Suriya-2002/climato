@@ -9,6 +9,26 @@
 html {
     font-size: 62.5%;
     scroll-behavior: smooth;
+
+    @include responsive(1800) {
+        font-size: 58%;
+    }
+
+    @include responsive(1700) {
+        font-size: 55%;
+    }
+
+    @include responsive(1600) {
+        font-size: 50%;
+    }
+
+    @include responsive(1400) {
+        font-size: 45%;
+    }
+
+    @include responsive(1300) {
+        font-size: 40%;
+    }
 }
 
 body {
