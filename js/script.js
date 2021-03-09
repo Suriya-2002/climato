@@ -58,6 +58,8 @@ let temperatureCelsius;
 let temperatureFeelsLikeFahrenheit;
 let temperatureFeelsLikeCelsius;
 
+let errorGlobal = false;
+
 document.addEventListener('scroll', () => {
     const scroll = window.scrollY;
 
@@ -227,6 +229,12 @@ const getWeatherWithLocation = () => {
         .then(response => response.json())
         .then(data => {
             updateUI(data);
+            errorGlobal = false;
+        })
+        .catch(error => {
+            icon.style.display = 'none';
+            descriptionDOM.innerHTML = `<b>${location[0].toUpperCase() + location.slice(1)}</b> not found.`;
+            errorGlobal = true;
         });
 };
 
@@ -243,10 +251,16 @@ const geolocation = () => {
                 .then(response => response.json())
                 .then(data => {
                     updateUI(data);
+                    errorGlobal = false;
+                })
+                .catch(error => {
+                    icon.style.display = 'none';
+                    errorGlobal = true;
                 });
         },
         error => {
             icon.style.display = 'none';
+            errorGlobal = true;
 
             if (error.code === 1) {
                 descriptionDOM.innerHTML = 'Allow <b>Climato</b> to access this device location.';
@@ -279,10 +293,12 @@ window.addEventListener('keydown', event => {
     }
 });
 
-temperatureContainerDOM.addEventListener('click', changeTemperatureUnits);
+temperatureContainerDOM.addEventListener('click', () => {
+    if (!errorGlobal) changeTemperatureUnits();
+});
 
 temperatureContainerDOM.addEventListener('mouseenter', () => {
-    popUp.classList.add('pop-up--active');
+    if (!errorGlobal) popUp.classList.add('pop-up--active');
 });
 
 temperatureContainerDOM.addEventListener('mouseleave', () => {
