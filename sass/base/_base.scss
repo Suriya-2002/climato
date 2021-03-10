@@ -29,6 +29,14 @@ html {
     @include responsive(1300) {
         font-size: 40%;
     }
+
+    @include responsive(tab-l) {
+        font-size: 62.5%;
+    }
+
+    @include responsive(tab-p) {
+        font-size: 55%;
+    }
 }
 
 body {

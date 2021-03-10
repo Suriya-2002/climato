@@ -10,6 +10,10 @@ body {
     text-shadow: $box-shadow-dark;
     @include absoluteCenter;
     z-index: 1;
+
+    @include responsive(tab-p) {
+        font-size: 12rem;
+    }
 }
 
 .paragraph {

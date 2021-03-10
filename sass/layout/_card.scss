@@ -3,4 +3,8 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+
+    @include responsive(tab-l) {
+        flex-direction: column;
+    }
 }

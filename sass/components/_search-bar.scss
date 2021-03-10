@@ -42,6 +42,10 @@
 
         &:focus {
             width: 60rem;
+
+            @include responsive(tab-p) {
+                width: 60vw;
+            }
         }
 
         &:focus ~ .search-bar__icon > .icon--search {
@@ -51,6 +55,10 @@
 
         &:focus ~ .search-bar__icon {
             transform: translateX(60rem);
+
+            @include responsive(tab-p) {
+                transform: translateX(60vw);
+            }
         }
     }
 

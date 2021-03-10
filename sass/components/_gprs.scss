@@ -35,4 +35,8 @@
         text-shadow: $text-shadow-dark;
         transform: translateY(0.5rem);
     }
+
+    @include responsive(tab-p) {
+        left: -15%;
+    }
 }

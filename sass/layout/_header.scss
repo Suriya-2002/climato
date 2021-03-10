@@ -22,6 +22,12 @@
                 width: 1400px;
                 bottom: 291.6px;
             }
+
+            @include responsive(tab-l) {
+                width: auto;
+                height: 120vh;
+                top: 0;
+            }
         }
 
         &--mountain-3 {
@@ -38,6 +44,11 @@
                 width: 802px;
                 bottom: 131.2px;
             }
+
+            @include responsive(tab-l) {
+                width: 900px;
+                bottom: 150px;
+            }
         }
 
         &--mountain-2 {
@@ -53,6 +64,11 @@
             @include responsive(1400) {
                 width: 1134px;
                 bottom: -123.9px;
+            }
+
+            @include responsive(tab-l) {
+                width: 1100px;
+                bottom: -100px;
             }
         }
 
@@ -71,6 +87,11 @@
                 width: 1400px;
                 bottom: -109.3px;
             }
+
+            @include responsive(tab-l) {
+                width: 1500px;
+                bottom: -100px;
+            }
         }
 
         &--person {
@@ -88,6 +109,12 @@
                 width: 656.2px;
                 bottom: -109.3px;
             }
+
+            @include responsive(tab-l) {
+                width: 650px;
+                left: -70px;
+                bottom: -100px;
+            }
         }
     }
 
@@ -98,6 +125,11 @@
         position: absolute;
         top: calc(100vh - 30rem);
         z-index: 2;
+
+        @include responsive(tab-l) {
+            height: 110rem;
+            top: calc(100vh - 30rem);
+        }
     }
 
     &--blue::after,

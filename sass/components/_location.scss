@@ -30,6 +30,10 @@
 
     &__icon-container {
         width: 15rem;
+
+        @include responsive(tab-p) {
+            margin-top: 8rem;
+        }
     }
 
     &__icon {
@@ -38,5 +42,9 @@
         width: 100%;
         border-radius: 50%;
         box-shadow: $box-shadow;
+    }
+
+    @include responsive(tab-p) {
+        flex-direction: column;
     }
 }

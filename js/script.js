@@ -110,6 +110,10 @@ const changeBackgroundColor = (colorDark, colorLight) => {
     weatherPrimary.style.background = `linear-gradient(${colorDark}, ${colorLight})`;
     weatherSecondary.style.background = `linear-gradient(${colorLight}, ${colorDark}) `;
     headerShadow.style.background = `linear-gradient(to top, ${colorDark} 70%, transparent)`;
+
+    if (screen.width < 1200)
+        headerShadow.style.background = `linear-gradient(to top, ${colorDark} 80%, transparent)`;
+
     footerShadow.style.background = `linear-gradient(${colorDark}, #000)`;
 };
 

@@ -39,4 +39,8 @@
         font-weight: 200;
         text-shadow: $text-shadow-dark;
     }
+
+    @include responsive(tab-p) {
+        margin-top: 10vh;
+    }
 }

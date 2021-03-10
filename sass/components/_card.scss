@@ -102,4 +102,8 @@
     &:hover &__back {
         transform: rotateY(0);
     }
+
+    @include responsive(tab-l) {
+        margin: 3rem 0;
+    }
 }
