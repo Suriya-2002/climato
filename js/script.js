@@ -177,15 +177,24 @@ const updateUI = data => {
 
     getEmoji(temp_c);
 
-    temperatureDOM.textContent = temp_c;
+    if (unitsDOM.getAttribute('data-units') === 'celsius') {
+        temperatureDOM.textContent = temperatureCelsius;
+        unitsDOM.textContent = 'C';
+
+        popUpValue.textContent = temperatureFeelsLikeCelsius;
+        popUpUnits.textContent = 'C';
+    } else if (unitsDOM.getAttribute('data-units') === 'fahrenheit') {
+        temperatureDOM.textContent = temperatureFahrenheit;
+        unitsDOM.textContent = 'F';
+
+        popUpValue.textContent = temperatureFeelsLikeFahrenheit;
+        popUpUnits.textContent = 'F';
+    }
+
     degreeDOM.innerHTML = '&deg;';
-    unitsDOM.textContent = 'C';
     descriptionDOM.textContent = description;
 
     searchInput.value = '';
-
-    popUpValue.textContent = feelslike_c;
-    popUpUnits.textContent = 'C';
 
     precipitation1DOM.textContent = precip_mm;
     precipitation2DOM.textContent = precip_in;
