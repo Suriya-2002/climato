@@ -37,6 +37,22 @@ html {
     @include responsive(tab-p) {
         font-size: 55%;
     }
+
+    @include responsive(mob) {
+        font-size: 45%;
+    }
+
+    @include responsive(450) {
+        font-size: 40%;
+    }
+
+    @include responsive(400) {
+        font-size: 35%;
+    }
+
+    @include responsive(350) {
+        font-size: 32%;
+    }
 }
 
 body {

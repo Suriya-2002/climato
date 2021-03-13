@@ -29,6 +29,18 @@ html {
   @media only screen and (max-width: 56.25em) {
     html {
       font-size: 55%; } }
+  @media only screen and (max-width: 37.5em) {
+    html {
+      font-size: 45%; } }
+  @media only screen and (max-width: 28.125em) {
+    html {
+      font-size: 40%; } }
+  @media only screen and (max-width: 25em) {
+    html {
+      font-size: 35%; } }
+  @media only screen and (max-width: 21.875em) {
+    html {
+      font-size: 32%; } }
 
 body {
   box-sizing: border-box; }
@@ -141,6 +153,44 @@ body {
   @media only screen and (max-width: 75em) {
     .card {
       margin: 3rem 0; } }
+  @media only screen and (max-width: 56.25em), only screen and (hover: none) {
+    .card {
+      margin: 15rem 0; }
+      .card--non-rotate {
+        margin: 5rem 0; }
+      .card__front {
+        box-shadow: none;
+        border-radius: 0;
+        border-top-left-radius: 0.5rem;
+        border-top-right-radius: 0.5rem; }
+        .card__front .card__content {
+          height: 35%;
+          top: 60%; }
+      .card__back {
+        background-color: #fff;
+        height: 50%;
+        padding-bottom: 3rem;
+        box-shadow: none;
+        border-radius: 0;
+        border-bottom-left-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
+        clip-path: polygon(0 0, 100% 30%, 100% 100%, 0 100%);
+        transform: translateY(170%) rotateY(0);
+        z-index: 2; }
+        .card__back .card__background,
+        .card__back .card__image-container,
+        .card__back .card__title {
+          display: none; }
+        .card__back .card__content {
+          height: 70%;
+          top: 30%; }
+      .card__content-secondary {
+        margin-right: 3rem;
+        align-self: flex-end; }
+      .card:hover .card__front {
+        transform: rotateY(0); }
+      .card:hover .card__back {
+        transform: translateY(170%) rotateY(0); } }
 
 .gprs {
   display: flex;
@@ -172,6 +222,9 @@ body {
   @media only screen and (max-width: 56.25em) {
     .gprs {
       left: -15%; } }
+  @media only screen and (max-width: 56.25em) {
+    .gprs {
+      left: -20%; } }
 
 .icon {
   color: #fff;
@@ -255,6 +308,10 @@ body {
     opacity: 1;
     pointer-events: all;
     transform: translateY(0); }
+  @media only screen and (max-width: 56.25em) {
+    .pop-up {
+      width: 90%;
+      margin: 5%; } }
 
 .search-bar {
   height: 100%;

@@ -43,4 +43,9 @@
         pointer-events: all;
         transform: translateY(0);
     }
+
+    @include responsive(tab-p) {
+        width: 90%;
+        margin: 5%;
+    }
 }

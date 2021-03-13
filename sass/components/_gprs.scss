@@ -39,4 +39,8 @@
     @include responsive(tab-p) {
         left: -15%;
     }
+
+    @include responsive(tab-p) {
+        left: -20%;
+    }
 }

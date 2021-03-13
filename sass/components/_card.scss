@@ -106,4 +106,61 @@
     @include responsive(tab-l) {
         margin: 3rem 0;
     }
+
+    @media only screen and (max-width: 900 / 16 * 1em), only screen and (hover: none) {
+        margin: 15rem 0;
+
+        &--non-rotate {
+            margin: 5rem 0;
+        }
+
+        &__front {
+            box-shadow: none;
+            border-radius: 0;
+            border-top-left-radius: 0.5rem;
+            border-top-right-radius: 0.5rem;
+
+            .card__content {
+                height: 35%;
+                top: 60%;
+            }
+        }
+
+        &__back {
+            background-color: $color-white;
+            height: 50%;
+            padding-bottom: 3rem;
+            box-shadow: none;
+            border-radius: 0;
+            border-bottom-left-radius: 0.5rem;
+            border-bottom-right-radius: 0.5rem;
+            clip-path: polygon(0 0, 100% 30%, 100% 100%, 0 100%);
+            transform: translateY(170%) rotateY(0);
+            z-index: 2;
+
+            .card__background,
+            .card__image-container,
+            .card__title {
+                display: none;
+            }
+
+            .card__content {
+                height: 70%;
+                top: 30%;
+            }
+        }
+
+        &__content-secondary {
+            margin-right: 3rem;
+            align-self: flex-end;
+        }
+
+        &:hover &__front {
+            transform: rotateY(0);
+        }
+
+        &:hover &__back {
+            transform: translateY(170%) rotateY(0);
+        }
+    }
 }
