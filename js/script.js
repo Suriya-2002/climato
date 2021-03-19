@@ -1,3 +1,5 @@
+const loading = document.querySelector('.loading');
+
 const parallaxScrollUp = document.querySelectorAll('.parallax-scroll-up');
 const headingPrimary = document.querySelector('.heading-primary');
 
@@ -287,6 +289,10 @@ const geolocation = () => {
 window.addEventListener('load', () => {
     loadingUI();
     geolocation();
+
+    setTimeout(() => {
+        loading.classList.add('loading--hidden');
+    }, 1000);
 });
 
 gprsButton.addEventListener('click', () => {
