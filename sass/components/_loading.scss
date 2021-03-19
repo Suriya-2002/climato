@@ -1,0 +1,51 @@
+.loading {
+    background-image: linear-gradient(
+        315deg,
+        $color-blue-dark,
+        $color-blue-light,
+        $color-green-light,
+        $color-green-dark,
+        $color-red-light,
+        $color-red-dark
+    );
+    background-size: 400% 400%;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: all 1s ease-in-out;
+    animation: loading-gradient 5s ease-in-out infinite;
+    z-index: 6;
+
+    &__circle {
+        border-radius: 50%;
+        position: absolute;
+        @include absoluteCenter;
+        box-shadow: $box-shadow;
+
+        &--big {
+            background-color: rgba($color-white, 0.4);
+            width: 15rem;
+            height: 15rem;
+            animation: loading 0.8s ease-in-out infinite alternate;
+        }
+
+        &--small {
+            background-color: $color-white;
+            width: 7rem;
+            height: 7rem;
+            animation: loading 0.8s ease-in-out infinite alternate-reverse;
+        }
+    }
+
+    &--hidden {
+        opacity: 0;
+        pointer-events: none;
+        animation: none;
+
+        .loading__circle {
+            animation: none;
+        }
+    }
+}
